@@ -10,6 +10,9 @@ namespace Projeto1LP
             pieces = new Pieces[7, 7];
         }
 
-        public Pieces Board { get; private set; }; 
+        public Pieces AllBoard { get; private set; }
+
+        foreach(Pieces element in pieces){
+            }
     }
 }

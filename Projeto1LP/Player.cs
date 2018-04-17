@@ -6,5 +6,6 @@ namespace Projeto1LP
 {
     class Player
     {
+
     }
 }

@@ -6,7 +6,7 @@ namespace Projeto1LP
 {
     class Player
     {
-        private Pieces choosenPiece;
+        private Pieces chosenPiece;
 
         public Position GetPosition(Board board)
         {
@@ -38,11 +38,11 @@ namespace Projeto1LP
                 switch (choose)
                 {
                     case 1:
-                        choosenPiece = Pieces.RedCircle;
+                        chosenPiece = Pieces.RedCircle;
                         break;
 
                     case 2:
-                        choosenPiece = Pieces.RedCube;
+                        chosenPiece = Pieces.RedCube;
                         break;
 
 
@@ -53,18 +53,18 @@ namespace Projeto1LP
                 switch (choose)
                 {
                     case 1:
-                        choosenPiece = Pieces.WhiteCircle;
+                        chosenPiece = Pieces.WhiteCircle;
                         break;
                     case 2:
-                        choosenPiece = Pieces.WhiteCube;
+                        chosenPiece = Pieces.WhiteCube;
                         break;
 
                 }
             }
-            return choosenPiece;
+            return chosenPiece;
         }
 
-        public Pieces GetPlayerChoosenPiece(Board board, int player)
+        public Pieces GetPlayerChosenPiece(Board board, int player)
         {
             int position = Convert.ToInt32(Console.ReadLine());
             Pieces desiredPieces = ChoosePiece(position, player);

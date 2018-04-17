@@ -12,13 +12,13 @@ namespace Projeto1LP
 
         public Pieces AllBoard { get; private set; }
 
-        public void ActualizeBoard(int playerElection, Pieces chosedPiece)
+        public void ActualizeBoard(Position position, Pieces chosedPiece)
         {
             for (int i=0; i <= pieces.Length; i++)
             {
-                if(pieces[i,playerElection] != Pieces.None)
+                if(pieces[i,position.Column] != Pieces.None)
                 {
-                    pieces[i, playerElection] = chosedPiece;
+                    pieces[i, position.Column] = chosedPiece;
                 }
             }
         }

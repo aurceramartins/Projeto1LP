@@ -6,6 +6,7 @@ namespace Projeto1LP
 {
     class Player
     {
+        private Pieces choosenPiece;
 
         public Position GetPosition(Board board)
         {
@@ -28,6 +29,37 @@ namespace Projeto1LP
               
                 default: return null;
             }
+        }
+
+        private Pieces ChoosePiece(int choose, int player)
+        {
+            if (player == 1)
+            {
+                switch (choose)
+                {
+                    case 1: choosenPiece = Pieces.RedCircle;
+                    case 2: choosenPiece = Pieces.RedCube;
+                   
+                }
+            }
+
+            else  if (player == 2)
+            {
+                switch (choose)
+                {
+                    case 1: choosenPiece = Pieces.WhiteCircle;
+                    case 2: choosenPiece = Pieces.WhiteCube;
+                
+                }
+            }
+            return choosenPiece;
+        }
+
+        public Pieces GetPlayerChoosenPiece (Board board, int player)
+        {
+            int position = Convert.ToInt32(Console.ReadLine());
+            Pieces desiredPieces = ChoosePiece(position, player);
+            return desiredPieces;
         }
     }
 }

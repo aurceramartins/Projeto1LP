@@ -12,7 +12,15 @@ namespace Projeto1LP
 
         public Pieces AllBoard { get; private set; }
 
-        foreach(Pieces element in pieces){
+        public void ActualizeBoard(int playerElection, Pieces chosedPiece)
+        {
+            for (int i=0; i <= pieces.Length; i++)
+            {
+                if(pieces[i,playerElection] != Pieces.None)
+                {
+                    pieces[i, playerElection] = chosedPiece;
+                }
             }
+        }
     }
 }

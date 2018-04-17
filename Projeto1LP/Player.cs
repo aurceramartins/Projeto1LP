@@ -24,9 +24,9 @@ namespace Projeto1LP
                 case 3: return new Position(3);
                 case 4: return new Position(4);
                 case 5: return new Position(5);
-                case 6: return new Position(6); 
-                case 7: return new Position(7); 
-              
+                case 6: return new Position(6);
+                case 7: return new Position(7);
+
                 default: return null;
             }
         }
@@ -37,25 +37,34 @@ namespace Projeto1LP
             {
                 switch (choose)
                 {
-                    case 1: choosenPiece = Pieces.RedCircle;
-                    case 2: choosenPiece = Pieces.RedCube;
-                   
+                    case 1:
+                        choosenPiece = Pieces.RedCircle;
+                        break;
+
+                    case 2:
+                        choosenPiece = Pieces.RedCube;
+                        break;
+
+
                 }
             }
-
-            else  if (player == 2)
+            else if (player == 2)
             {
                 switch (choose)
                 {
-                    case 1: choosenPiece = Pieces.WhiteCircle;
-                    case 2: choosenPiece = Pieces.WhiteCube;
-                
+                    case 1:
+                        choosenPiece = Pieces.WhiteCircle;
+                        break;
+                    case 2:
+                        choosenPiece = Pieces.WhiteCube;
+                        break;
+
                 }
             }
             return choosenPiece;
         }
 
-        public Pieces GetPlayerChoosenPiece (Board board, int player)
+        public Pieces GetPlayerChoosenPiece(Board board, int player)
         {
             int position = Convert.ToInt32(Console.ReadLine());
             Pieces desiredPieces = ChoosePiece(position, player);

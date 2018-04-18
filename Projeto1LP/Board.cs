@@ -10,15 +10,19 @@ namespace Projeto1LP
             pieces = new Pieces[7, 7];
         }
 
-        public Pieces AllBoard { get; private set; }
-
-        public void ActualizeBoard(Position position, Pieces chosedPiece)
+        public Pieces GetBoard(Position position)
         {
-            for (int i=0; i <= pieces.Length; i++)
+            return pieces[position.Row, position.Column];
+        }
+
+        public void SetBoard(Position position, Pieces choosedPiece)
+        {
+            for (int i = 6; i >= 0; i--)
             {
-                if(pieces[i,position.Column] != Pieces.None)
+                if (pieces[i, position.Column-1] == Pieces.None)
                 {
-                    pieces[i, position.Column] = chosedPiece;
+                    pieces[i, position.Column-1] = choosedPiece;
+                    break;
                 }
             }
         }

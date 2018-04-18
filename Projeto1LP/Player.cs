@@ -7,14 +7,14 @@ namespace Projeto1LP
     class Player
     {
         private Pieces chosenPiece;
-
         public Position GetPosition(Board board)
         {
+            Console.WriteLine("Joga do 1 o 7");
             int position = Convert.ToInt32(Console.ReadLine());
             Position desiredCoordinate = PositionForNumber(position);
+            Console.WriteLine(desiredCoordinate);
             return desiredCoordinate;
         }
-
         private Position PositionForNumber(int position)
         {
             switch (position)
@@ -30,7 +30,6 @@ namespace Projeto1LP
                 default: return null;
             }
         }
-
         private Pieces ChoosePiece(int choose, int player)
         {
             if (player == 1)
@@ -38,14 +37,11 @@ namespace Projeto1LP
                 switch (choose)
                 {
                     case 1:
-                        chosenPiece = Pieces.RedCircle;
+                        return Pieces.RedCube;
                         break;
-
                     case 2:
-                        chosenPiece = Pieces.RedCube;
+                        return Pieces.RedCircle;
                         break;
-
-
                 }
             }
             else if (player == 2)
@@ -53,21 +49,21 @@ namespace Projeto1LP
                 switch (choose)
                 {
                     case 1:
-                        chosenPiece = Pieces.WhiteCircle;
+                        return Pieces.WhiteCube;
                         break;
                     case 2:
-                        chosenPiece = Pieces.WhiteCube;
+                        return Pieces.WhiteCircle;
                         break;
-
                 }
             }
             return chosenPiece;
         }
-
         public Pieces GetPlayerChosenPiece(Board board, int player)
         {
-            int position = Convert.ToInt32(Console.ReadLine());
-            Pieces desiredPieces = ChoosePiece(position, player);
+            Console.WriteLine("1 Cubo 2 Circle");
+            int choose = Convert.ToInt32(Console.ReadLine());
+            Pieces desiredPieces = ChoosePiece(choose, player);
+            Console.WriteLine(desiredPieces);
             return desiredPieces;
         }
     }

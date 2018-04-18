@@ -1,7 +1,6 @@
 ﻿using System;
 namespace Projeto1LP
 {
-
     public enum Pieces
     {
         None,
@@ -9,6 +8,6 @@ namespace Projeto1LP
         RedCircle,
         WhiteCube,
         WhiteCircle
-    } 
-
+    }
 }
+

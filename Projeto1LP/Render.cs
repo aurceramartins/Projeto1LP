@@ -35,4 +35,8 @@ namespace Projeto1LP
         }
 
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0797215eeacbb01d36370bbeb6f8436e931c2829

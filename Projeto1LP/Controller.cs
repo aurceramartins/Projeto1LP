@@ -20,13 +20,14 @@ namespace Projeto1LP
 
             while (true)
             {
-                if(turn % 2 == 0)
+                if (turn % 2 != 0)
                 {
                     nplayer = 1;
                     Position playerMove = player1.GetPosition(board);
                     Pieces pieceElected = player1.GetPlayerChosenPiece(board, nplayer);
 
                     board.SetBoard(playerMove, pieceElected);
+
                     //renderer.Renderer();
                     //renderer.RenderResults();
                     turn++;
@@ -38,6 +39,7 @@ namespace Projeto1LP
                     Pieces pieceElected = player2.GetPlayerChosenPiece(board, nplayer);
 
                     board.SetBoard(playerMove, pieceElected);
+
                     //renderer.Renderer();
                     //renderer.RenderResults();
                     turn++;

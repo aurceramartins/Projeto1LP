@@ -6,7 +6,8 @@ namespace Projeto1LP
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Controller play = new Controller();
+            play.Play();
         }
     }
 }

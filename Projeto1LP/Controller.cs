@@ -10,6 +10,7 @@ namespace Projeto1LP
         Player player1 = new Player();
         Player player2 = new Player();
         Render render = new Render();
+        Check4Win isWinner = new Check4Win();
 
         private int turn = 0;
         private int nplayer = 0;
@@ -45,6 +46,7 @@ namespace Projeto1LP
                     turn++;
                 }
                 render.RenderBoard(board);
+                isWinner.CheckWinner(board);
             }
         }
     }

@@ -9,7 +9,7 @@ namespace Projeto1LP
         private Pieces chosenPiece;
         public Position GetPosition(Board board)
         {
-            Console.WriteLine("Joga do 1 o 7");
+            Console.WriteLine("Escolha onde quer jogar (1 a 7): ");
             int position = Convert.ToInt32(Console.ReadLine());
             Position desiredCoordinate = PositionForNumber(position);
             Console.WriteLine(desiredCoordinate);
@@ -60,7 +60,7 @@ namespace Projeto1LP
         }
         public Pieces GetPlayerChosenPiece(Board board, int player)
         {
-            Console.WriteLine("1 Cubo 2 Circle");
+            Console.WriteLine("Escolha a peça: 1 - Cubo 2 - Cilindro");
             int choose = Convert.ToInt32(Console.ReadLine());
             Pieces desiredPieces = ChoosePiece(choose, player);
             Console.WriteLine(desiredPieces);

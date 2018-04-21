@@ -80,8 +80,11 @@ namespace Projeto1LP
                 {
                     if (red == 3)
                     {
-                        red = 0;
-                        return true;
+                        if (nplayer == 1)
+                        {
+                            red = 0;
+                            return true;
+                        }
                     }
                     red++;
                 }
@@ -89,7 +92,7 @@ namespace Projeto1LP
                 {
                     red = 0;
                 }
-                if (board.GetBoard(position) == Pieces.RedCube 
+                if (board.GetBoard(position) == Pieces.RedCube
                     || board.GetBoard(position) == Pieces.WhiteCube)
                 {
                     if (cube == 3)
@@ -106,7 +109,7 @@ namespace Projeto1LP
                 {
                     cube = 0;
                 }
-                if (board.GetBoard(position) == Pieces.WhiteCircle 
+                if (board.GetBoard(position) == Pieces.WhiteCircle
                     || board.GetBoard(position) == Pieces.RedCircle)
                 {
                     if (nplayer == 2)
@@ -123,7 +126,7 @@ namespace Projeto1LP
                 {
                     circle = 0;
                 }
-                if (board.GetBoard(position) == Pieces.WhiteCube 
+                if (board.GetBoard(position) == Pieces.WhiteCube
                     || board.GetBoard(position) == Pieces.WhiteCircle)
                 {
                     if (white == 3)

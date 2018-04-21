@@ -9,6 +9,8 @@ namespace Projeto1LP
         char[,] symbols = new char[7, 7];
         public void RenderBoard(Board board)
         {
+            Console.Clear();
+
             for (int i = 0; i < 7; i++)
             {
                 for (int j = 0; j < 7; j++)
@@ -20,6 +22,7 @@ namespace Projeto1LP
                 Console.Write("\n");
             }
             Console.WriteLine("---------------------");
+            Console.WriteLine(" 1  2  3  4  5  6  7 \n");
         }
         private char PiecesName(Pieces pieces)
         {
@@ -29,11 +32,27 @@ namespace Projeto1LP
                 case Pieces.RedCube: return 'R';
                 case Pieces.WhiteCircle: return 'w';
                 case Pieces.WhiteCube: return 'W';
-                case Pieces.None:return '|';
+                case Pieces.None: return '|';
                 default: return ' ';
             }
         }
-
+        public void Result(int win)
+        {
+            switch (win)
+            {
+                case 1: Console.WriteLine("PLAYER RED WINS!!"); break;
+                case 2: Console.WriteLine("PLAYER WHITE WINS!!"); break;
+                default: Console.WriteLine("Its a Draw!!"); break;
+            }
+        }
+        public void Nplayer(int player)
+        {
+            switch (player)
+            {
+                case 1: Console.Write("PLAYER RED "); break;
+                case 2: Console.Write("PLAYER WHITE "); break;
+            }
+        }
     }
 }
 

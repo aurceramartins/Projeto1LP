@@ -12,37 +12,47 @@ namespace Projeto1LP
         Render render = new Render();
         Check4Win isWinner = new Check4Win();
 
+        private int win = 0;
         private int turn = 0;
         private int nplayer = 0;
         private bool nopieces = false;
+        Position playerMove;
+        Pieces pieceElected;
 
         public void Play()
         {
             render.RenderBoard(board);
 
-            while (nopieces == false)
+            while (nopieces == false && win == 0)
             {
                 if (turn % 2 != 0)
                 {
                     nplayer = 1;
-                    Position playerMove = player1.GetPosition(board);
-                    Pieces pieceElected = player1.GetPlayerChosenPiece(board, nplayer);
+                    render.Nplayer(nplayer);
+                    playerMove = player1.GetPosition(board);
+                    pieceElected = player1.GetPlayerChosenPiece(board, nplayer);
                     board.SetBoard(playerMove, pieceElected);
                     turn++;
                 }
                 else
                 {
                     nplayer = 2;
-                    Position playerMove = player2.GetPosition(board);
-                    Pieces pieceElected = player2.GetPlayerChosenPiece(board, nplayer);
+                    render.Nplayer(nplayer);
+                    playerMove = player2.GetPosition(board);
+                    pieceElected = player2.GetPlayerChosenPiece(board, nplayer);
                     board.SetBoard(playerMove, pieceElected);
                     turn++;
                 }
-                Console.Clear();
+                if (board.IsFullLine)
+                {
+                    turn--;
+                    board.IsFullLine = false;
+                }
                 render.RenderBoard(board);
-                isWinner.Check(board, nplayer);
+                win = isWinner.Check(board, nplayer);
                 if (player1.Cube == 0 && player1.Circle == 0 && player2.Circle == 0 && player2.Cube == 0) { nopieces = true; }
             }
+            render.Result(win);
         }
     }
 }

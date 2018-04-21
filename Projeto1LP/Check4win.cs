@@ -6,8 +6,15 @@ namespace Projeto1LP
 {
     class Check4Win
     {
-        int shapeSquare = 0;
-        int shapeCircle = 0;
+        public Check4Win()
+        {
+            ShapeCube = 0;
+            ShapeCircle = 0;
+
+        }
+        public int ShapeCube { get; private set; }
+        public int ShapeCircle { get; private set; }
+
         /// <summary>
         /// Returns the winner
         /// </summary>
@@ -17,9 +24,15 @@ namespace Projeto1LP
         public int Check(Board board, int nplayer)
         {
             if (CheckWinner(board, nplayer)){
-                if (shapeSquare == 1){ return 1;}
-                else if(shapeCircle == 1) { return 2;}
-                return nplayer;   
+                if (ShapeCube == 1){
+                    ShapeCube = 0;
+                    return 1;
+                }
+                else if(ShapeCircle == 1) {
+                    ShapeCircle = 0;
+                    return 2;
+                }
+                return nplayer; 
             } 
 
             else return 0;
@@ -144,13 +157,14 @@ namespace Projeto1LP
                     if (cube == 3)
                     {
                         ///checks if its player 1 
-                        if (nplayer == 1)
-                        {
+                     
+
                             ///Set the cube counter to 0
                             cube = 0;
-                            shapeCube = 1;
+                            ShapeCube = 1;
+
                             return true;
-                        }
+
                     }
                     ///Increases the cube counter in 1 value
                     cube++;
@@ -164,18 +178,18 @@ namespace Projeto1LP
                 if (board.GetBoard(position) == Pieces.WhiteCircle
                     || board.GetBoard(position) == Pieces.RedCircle)
                 {
-                    ///if threre are 4 circle pieces
+                    ///if there are 4 circle pieces
                     if (circle == 3)
                     {
                         ///checks if its player 2
-                        if (nplayer == 2)
-                        {
+
+
                             ///Set the circle counter to 0
                             circle = 0;
-                            shapeCircle = 1;
+                            ShapeCircle = 1;
 
                             return true;
-                        }
+
                     }
                     ///Increases the cicle counter in 1 value
                     circle++;

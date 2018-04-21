@@ -80,8 +80,8 @@ namespace Projeto1LP
         {
             switch (player)
             {
-                case 1: Console.Write("JOGADOR VERMELHO"); break;
-                case 2: Console.Write("JOGADOR BRANCO"); break;
+                case 1: Console.WriteLine("JOGADOR VERMELHO"); break;
+                case 2: Console.WriteLine("JOGADOR BRANCO"); break;
             }
         }
     }

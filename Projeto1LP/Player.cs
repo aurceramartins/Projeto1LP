@@ -22,7 +22,7 @@ namespace Projeto1LP
                 Console.WriteLine("Escolha onde quer jogar (1 a 7): ");
                 position = Convert.ToInt32(Console.ReadLine());
                 desiredCoordinate = PositionForNumber(position);
-                if (position > 7 || position <= 0) Console.WriteLine("Erro volva a escolher");
+                if (position > 7 || position <= 0) Console.WriteLine("Erro, escolhe outro número");
             } while (position > 7 || position <= 0);
 
             return desiredCoordinate;

@@ -257,9 +257,9 @@ return false;
 
 ```
 ##### Diagrama UML:
-![UML](UML.svg)
+
 ##### Fluxograma:
-![Fluxograma](Flowchart.svg)
+
 ### Conclusões
 Com a realização deste projeto aprendemos a criar diversas classes para organização do código e como fazer um diagrama UML.
 Tivemos algumas dificuldades em começar o projeto mas após percebermos a lógica do jogo, já foi mais fácil. A classe do `Check4win`foi a mais complicada de fazer pois há várias maneiras de um jogador ganhar.

@@ -6,6 +6,8 @@ namespace Projeto1LP
 {
     class Check4Win
     {
+        int shapeSquare = 0;
+        int shapeCircle = 0;
         /// <summary>
         /// Returns the winner
         /// </summary>
@@ -14,7 +16,12 @@ namespace Projeto1LP
         /// <param name="nplayer">Nplayer.</param>
         public int Check(Board board, int nplayer)
         {
-            if (CheckWinner(board, nplayer)) return nplayer;
+            if (CheckWinner(board, nplayer)){
+                if (shapeSquare == 1){ return 1;}
+                else if(shapeCircle == 1) { return 2;}
+                return nplayer;   
+            } 
+
             else return 0;
         }
         /// <summary>
@@ -141,6 +148,7 @@ namespace Projeto1LP
                         {
                             ///Set the cube counter to 0
                             cube = 0;
+                            shapeCube = 1;
                             return true;
                         }
                     }
@@ -164,6 +172,8 @@ namespace Projeto1LP
                         {
                             ///Set the circle counter to 0
                             circle = 0;
+                            shapeCircle = 1;
+
                             return true;
                         }
                     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Projeto1LP
 {
-    class Check4win
+    class Check4Win
     {
         public int Check(Board board, int nplayer)
         {

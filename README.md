@@ -257,8 +257,9 @@ return false;
 
 ```
 ##### Diagrama UML:
-
+![UML](UML.svg)
 ##### Fluxograma:
+![Flowchart](Flowchart.svg)
 
 ### Conclusões
 Com a realização deste projeto aprendemos a criar diversas classes para organização do código e como fazer um diagrama UML.

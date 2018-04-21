@@ -4,15 +4,31 @@ using System.Text;
 
 namespace Projeto1LP
 {
+    /// <summary>
+    /// Check4 window.
+    /// </summary>
     class Check4Win
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:Projeto1LP.Check4Win"/> class.
+        /// </summary>
         public Check4Win()
         {
+            ///Initialize Cube counter
             ShapeCube = 0;
+            ///Initialize Circle counter
             ShapeCircle = 0;
 
         }
+        /// <summary>
+        /// Gets the shape cube.
+        /// </summary>
+        /// <value>The shape cube.</value>
         public int ShapeCube { get; private set; }
+        /// <summary>
+        /// Gets the shape circle.
+        /// </summary>
+        /// <value>The shape circle.</value>
         public int ShapeCircle { get; private set; }
 
         /// <summary>
@@ -23,6 +39,7 @@ namespace Projeto1LP
         /// <param name="nplayer">Nplayer.</param>
         public int Check(Board board, int nplayer)
         {
+            ///Checks the winner
             if (CheckWinner(board, nplayer)){
                 if (ShapeCube == 1){
                     ShapeCube = 0;
@@ -34,7 +51,6 @@ namespace Projeto1LP
                 }
                 return nplayer; 
             } 
-
             else return 0;
         }
         /// <summary>
@@ -156,15 +172,11 @@ namespace Projeto1LP
                     ///if threre are 4 red pieces
                     if (cube == 3)
                     {
-                        ///checks if its player 1 
-                     
-
                             ///Set the cube counter to 0
                             cube = 0;
+                            ///if 1 red wins
                             ShapeCube = 1;
-
                             return true;
-
                     }
                     ///Increases the cube counter in 1 value
                     cube++;
@@ -181,15 +193,11 @@ namespace Projeto1LP
                     ///if there are 4 circle pieces
                     if (circle == 3)
                     {
-                        ///checks if its player 2
-
-
                             ///Set the circle counter to 0
                             circle = 0;
+                            ///If 1 white wins
                             ShapeCircle = 1;
-
                             return true;
-
                     }
                     ///Increases the cicle counter in 1 value
                     circle++;

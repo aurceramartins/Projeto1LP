@@ -31,7 +31,7 @@ namespace Projeto1LP
                 ///go through the columns array.
                 for (int j = 6; j >= 0; j--)
                 {
-                    ///Verefy all the possible vertical positions
+                    ///Verify all the possible vertical positions
                     if (j >= 3)
                     {
                         ///calls the CheckBoard method and give 4 positions.
@@ -44,7 +44,7 @@ namespace Projeto1LP
                             return true;
                         }
                     }
-                    ///Verefy all the possible horizontal positions
+                    ///Verify all the possible horizontal positions
                     else if (i >= 3)
                     {
                         ///calls the CheckBoard method and give 4 positions.
@@ -57,7 +57,7 @@ namespace Projeto1LP
                             return true;
                         }
                     }
-                    ///Verefy all the possible left diagonal positions
+                    ///Verify all the possible left diagonal positions
                     if (i >= 3 && j >= 3)
                     {
                         ///calls the CheckBoard method and give 4 positions.
@@ -70,7 +70,7 @@ namespace Projeto1LP
                             return true;
                         }
                     }
-                    ///Verefy all the possible right diagonal positions
+                    ///Verify all the possible right diagonal positions
                     if (i >= 3 && j <= 3)
                     {
                         ///calls the CheckBoard method and give 4 positions.

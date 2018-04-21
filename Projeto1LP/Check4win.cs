@@ -6,70 +6,142 @@ namespace Projeto1LP
 {
     class Check4Win
     {
-        public void CheckWinner(Board board)
+        public int Check(Board board, int nplayer)
         {
-            char[,] symbols = new char[7, 7];
-
+            if (CheckWinner(board, nplayer)) return nplayer;
+            else return 0;
+        }
+        public bool CheckWinner(Board board, int nplayer)
+        {
             for (int i = 6; i >= 0; i--)
             {
                 for (int j = 6; j >= 0; j--)
                 {
-                    symbols[i, j] = PiecesName(board.GetBoard(new Position(i, j)));
-                }
-            }
-
-            for (int i = 6; i >= 0; i--)
-            {
-                for (int j = 6; j >= 0; j--)
-                {
-                    if (symbols[i, j] != '|')
+                    if (j >= 3)
                     {
-                        if (j >= 3)
+                        if (CheckBoard(board, new Position[] {
+                        new Position(i, j),
+                        new Position(i, j-1),
+                        new Position(i, j-2),
+                        new Position(i, j-3) }, nplayer))
                         {
-                            //   for (int p = 1; p <= ; p++)
-                            //   {
-                            if (symbols[i, j] == symbols[i, j - 1] && symbols[i, j] == symbols[i, j - 2] && symbols[i, j] == symbols[i, j - 3])
-                            {
-                                Console.WriteLine("GANHEIIIIIIIIIIII");
-                            }
-                            //  }
+                            return true;
                         }
-                        else if (i >= 3)
+                    }
+                    else if (i >= 3)
+                    {
+                        if (CheckBoard(board, new Position[] {
+                        new Position(i, j),
+                        new Position(i-1, j),
+                        new Position(i-2, j),
+                        new Position(i-3, j) }, nplayer))
                         {
-                            if (symbols[i, j] == symbols[i - 1, j] && symbols[i, j] == symbols[i - 2, j] && symbols[i, j] == symbols[i - 3, j])
-                            {
-                                Console.WriteLine("GANHEIIIIIIIIIIII");
-                            }
+                            return true;
                         }
-                        if (i >= 3 && j >= 3)
+                    }
+                    if (i >= 3 && j >= 3)
+                    {
+                        if (CheckBoard(board, new Position[] {
+                        new Position(i, j),
+                        new Position(i-1, j-1),
+                        new Position(i-2, j-2),
+                        new Position(i-3, j-3) }, nplayer))
                         {
-                            if (symbols[i, j] == symbols[i - 1, j - 1] && symbols[i, j] == symbols[i - 2, j - 2] && symbols[i, j] == symbols[i - 3, j - 3])
-                            {
-                                Console.WriteLine("GANHEIIIIIIIIIIIINASDIAGONAISMAIS");
-                            }
+                            return true;
                         }
-                        if (i >= 3 && j <= 3)
+                    }
+                    if (i >= 3 && j <= 3)
+                    {
+                        if (CheckBoard(board, new Position[] {
+                        new Position(i, j),
+                        new Position(i-1, j+1),
+                        new Position(i-2, j+2),
+                        new Position(i-3, j+3) }, nplayer))
                         {
-                            if (symbols[i, j] == symbols[i - 1, j + 1] && symbols[i, j] == symbols[i - 2, j + 2] && symbols[i, j] == symbols[i - 3, j + 3])
-                            {
-                                Console.WriteLine("GANHEIIIIIIIIIIIINASDIAGONAISMENOS");
-                            }
+                            return true;
                         }
                     }
                 }
             }
+            return false;
         }
-        private char PiecesName(Pieces pieces)
+
+        private bool CheckBoard(Board board, Position[] positions, int nplayer)
         {
-            switch (pieces)
+            int white = 0;
+            int cube = 0;
+            int circle = 0;
+            int red = 0;
+
+            foreach (Position position in positions)
             {
-                case Pieces.RedCircle: return 'r';
-                case Pieces.RedCube: return 'R';
-                case Pieces.WhiteCircle: return 'w';
-                case Pieces.WhiteCube: return 'W';
-                case Pieces.None: return '|';
-                default: return ' ';
+                if (board.GetBoard(position) == Pieces.RedCircle
+                    || board.GetBoard(position) == Pieces.RedCube)
+                {
+                    if (red == 3)
+                    {
+                        red = 0;
+                        return true;
+                    }
+                    red++;
+                }
+                else
+                {
+                    red = 0;
+                }
+                if (board.GetBoard(position) == Pieces.RedCube 
+                    || board.GetBoard(position) == Pieces.WhiteCube)
+                {
+                    if (cube == 3)
+                    {
+                        if (nplayer == 1)
+                        {
+                            cube = 0;
+                            return true;
+                        }
+                    }
+                    cube++;
+                }
+                else
+                {
+                    cube = 0;
+                }
+                if (board.GetBoard(position) == Pieces.WhiteCircle 
+                    || board.GetBoard(position) == Pieces.RedCircle)
+                {
+                    if (nplayer == 2)
+                    {
+                        if (circle == 3)
+                        {
+                            circle = 0;
+                            return true;
+                        }
+                    }
+                    circle++;
+                }
+                else
+                {
+                    circle = 0;
+                }
+                if (board.GetBoard(position) == Pieces.WhiteCube 
+                    || board.GetBoard(position) == Pieces.WhiteCircle)
+                {
+                    if (white == 3)
+                    {
+                        if (nplayer == 2)
+                        {
+                            white = 0;
+                            return true;
+                        }
+                    }
+                    white++;
+                }
+                else
+                {
+                    white = 0;
+                }
             }
+            return false;
         }
     }
 }

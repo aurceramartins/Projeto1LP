@@ -6,13 +6,25 @@ namespace Projeto1LP
 {
     class Player
     {
-        private Pieces chosenPiece;
+        public Player()
+        {
+            Cube = 11;
+            Circle = 10;
+        }
+        public int Cube { get; private set; }
+        public int Circle { get; private set; }
         public Position GetPosition(Board board)
         {
-            Console.WriteLine("Escolha onde quer jogar (1 a 7): ");
-            int position = Convert.ToInt32(Console.ReadLine());
-            Position desiredCoordinate = PositionForNumber(position);
-            Console.WriteLine(desiredCoordinate);
+            int position;
+            Position desiredCoordinate;
+            do
+            {
+                Console.WriteLine("Escolha onde quer jogar (1 a 7): ");
+                position = Convert.ToInt32(Console.ReadLine());
+                desiredCoordinate = PositionForNumber(position);
+                if (position > 7 || position <= 0) Console.WriteLine("Erro volva a escolher");
+            } while (position > 7 || position <= 0);
+
             return desiredCoordinate;
         }
         private Position PositionForNumber(int position)
@@ -30,41 +42,55 @@ namespace Projeto1LP
                 default: return null;
             }
         }
+        public Pieces GetPlayerChosenPiece(Board board, int player)
+        {
+            int choose;
+            Pieces desiredPieces;
+            Console.WriteLine(Cube + " cubos , circulos " + Circle);
+
+            do
+            {
+                Console.WriteLine("Escolha a peça: 1 - Cubo 2 - Cilindro");
+                choose = Convert.ToInt32(Console.ReadLine());
+
+                if (Cube == 0) choose = 2;
+                else if (Circle == 0) choose = 1;
+
+                desiredPieces = ChoosePiece(choose, player);
+                Console.WriteLine(desiredPieces);
+                if ((choose > 2 || choose <= 0)) Console.WriteLine("Erro volva a escolher");
+            } while (choose > 2 || choose <= 0);
+            switch (choose)
+            {
+                case 1:
+                    Cube--;
+                    break;
+                case 2:
+                    Circle--;
+                    break;
+            }
+            return desiredPieces;
+        }
         private Pieces ChoosePiece(int choose, int player)
         {
             if (player == 1)
             {
                 switch (choose)
                 {
-                    case 1:
-                        return Pieces.RedCube;
-                        break;
-                    case 2:
-                        return Pieces.RedCircle;
-                        break;
+                    case 1: return Pieces.RedCube;
+                    case 2: return Pieces.RedCircle;
+                    default: return Pieces.None;
                 }
             }
-            else if (player == 2)
+            else
             {
                 switch (choose)
                 {
-                    case 1:
-                        return Pieces.WhiteCube;
-                        break;
-                    case 2:
-                        return Pieces.WhiteCircle;
-                        break;
+                    case 1: return Pieces.WhiteCube;
+                    case 2: return Pieces.WhiteCircle;
+                    default: return Pieces.None;
                 }
             }
-            return chosenPiece;
-        }
-        public Pieces GetPlayerChosenPiece(Board board, int player)
-        {
-            Console.WriteLine("Escolha a peça: 1 - Cubo 2 - Cilindro");
-            int choose = Convert.ToInt32(Console.ReadLine());
-            Pieces desiredPieces = ChoosePiece(choose, player);
-            Console.WriteLine(desiredPieces);
-            return desiredPieces;
         }
     }
 }

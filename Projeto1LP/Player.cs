@@ -4,8 +4,14 @@ using System.Text;
 
 namespace Projeto1LP
 {
+    /// <summary>
+    /// Player.
+    /// </summary>
     class Player
     {
+        /// <summary>
+        /// Initializes a new instance of the Player class.
+        /// </summary>
         public Player()
         {
             Cube = 11;
@@ -17,18 +23,29 @@ namespace Projeto1LP
         {
             int position;
             Position desiredCoordinate;
+
             do
             {
+                ///Prints the controlers intrutions
                 Console.WriteLine("Escolha onde quer jogar (1 a 7): ");
+                ///Convert the player input
                 position = Convert.ToInt32(Console.ReadLine());
+                ///sets the desired coordinate
                 desiredCoordinate = PositionForNumber(position);
+                ///Print a error if the desired column is not avaliable
                 if (position > 7 || position <= 0) Console.WriteLine("Erro, escolhe outro número");
             } while (position > 7 || position <= 0);
 
             return desiredCoordinate;
         }
+        /// <summary>
+        /// Positions for number.
+        /// </summary>
+        /// <returns>The for number.</returns>
+        /// <param name="position">Position.</param>
         private Position PositionForNumber(int position)
         {
+            ///Returns the desired position
             switch (position)
             {
                 case 1: return new Position(1);
@@ -42,11 +59,18 @@ namespace Projeto1LP
                 default: return null;
             }
         }
+        /// <summary>
+        /// Gets the player chosen piece.
+        /// </summary>
+        /// <returns>The player chosen piece.</returns>
+        /// <param name="board">Board.</param>
+        /// <param name="player">Player.</param>
         public Pieces GetPlayerChosenPiece(Board board, int player)
         {
+            
             int choose;
             Pieces desiredPieces;
-            Console.WriteLine(Cube + " cubos , circulos " + Circle);
+            Console.WriteLine("cubos; "+ Cube + " circulos; " + Circle);
 
             do
             {
@@ -58,7 +82,7 @@ namespace Projeto1LP
 
                 desiredPieces = ChoosePiece(choose, player);
                 Console.WriteLine(desiredPieces);
-                if ((choose > 2 || choose <= 0)) Console.WriteLine("Erro volva a escolher");
+                if ((choose > 2 || choose <= 0)) Console.WriteLine("Erro volta a escolher");
             } while (choose > 2 || choose <= 0);
             switch (choose)
             {
@@ -71,6 +95,12 @@ namespace Projeto1LP
             }
             return desiredPieces;
         }
+        /// <summary>
+        /// Chooses the piece.
+        /// </summary>
+        /// <returns>The piece.</returns>
+        /// <param name="choose">Choose.</param>
+        /// <param name="player">Player.</param>
         private Pieces ChoosePiece(int choose, int player)
         {
             if (player == 1)

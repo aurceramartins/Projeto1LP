@@ -66,9 +66,9 @@ namespace Projeto1LP
         {
             switch (win)
             {
-                case 1: Console.WriteLine("PLAYER RED WINS!!"); break;
-                case 2: Console.WriteLine("PLAYER WHITE WINS!!"); break;
-                default: Console.WriteLine("Its a Draw!!"); break;
+                case 1: Console.WriteLine("JOGADOR VERMELHO GANHA!!"); break;
+                case 2: Console.WriteLine("JOGADOR BRANCO GANHA!!"); break;
+                default: Console.WriteLine("EMPATE!!"); break;
             }
         }
         /// <summary>
@@ -80,8 +80,8 @@ namespace Projeto1LP
         {
             switch (player)
             {
-                case 1: Console.Write("PLAYER RED "); break;
-                case 2: Console.Write("PLAYER WHITE "); break;
+                case 1: Console.Write("JOGADOR VERMELHO"); break;
+                case 2: Console.Write("JOGADOR BRANCO"); break;
             }
         }
     }

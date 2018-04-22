@@ -8,6 +8,7 @@ Pedro Santos a21702907
 ##### Link do repositório GitHub : https://github.com/aurceramartins/Projeto1LP.git
 
 ### Relatório:
+O nosso grupo fez o projeto todo em conjunto e depois fomos dividindo o código para cada um de nós fazer commits para o GitHub.
 
 ### Solução:
 ##### Arquitetura:
@@ -22,56 +23,7 @@ A classe `Controler` é o gameloop do jogo e a classe `Render` mostra os resulta
 As estruturas de dados que utilizámos no nosso código foi `arrays`, `enumerações`. <p>
 
 Um dos algoritmos que usámos foi o de verificação de vitória:
-```
-/// <summary>
-/// Check4 window.
-/// </summary>
-class Check4Win
-{
-/// <summary>
-/// Initializes a new instance of the <see cref="T:Projeto1LP.Check4Win"/> class.
-/// </summary>
-public Check4Win()
-{
-///Initialize Cube counter
-ShapeCube = 0;
-///Initialize Circle counter
-ShapeCircle = 0;
 
-}
-/// <summary>
-/// Gets the shape cube.
-/// </summary>
-/// <value>The shape cube.</value>
-public int ShapeCube { get; private set; }
-/// <summary>
-/// Gets the shape circle.
-/// </summary>
-/// <value>The shape circle.</value>
-public int ShapeCircle { get; private set; }
-
-/// <summary>
-/// Returns the winner
-/// </summary>
-/// <returns>int Player</returns>
-/// <param name="board">Board.</param>
-/// <param name="nplayer">Nplayer.</param>
-public int Check(Board board, int nplayer)
-{
-///Checks the winner
-if (CheckWinner(board, nplayer)){
-if (ShapeCube == 1){
-ShapeCube = 0;
-return 1;
-}
-else if(ShapeCircle == 1) {
-ShapeCircle = 0;
-return 2;
-}
-return nplayer;
-}
-else return 0;
-}
 /// <summary>
 /// Checks the winner.
 /// </summary>
@@ -255,7 +207,7 @@ return false;
 }
 }
 
-```
+
 ##### Diagrama UML:
 ![UML](UML.svg)
 ##### Fluxograma:
@@ -263,13 +215,7 @@ return false;
 
 ### Conclusões
 Com a realização deste projeto aprendemos a criar diversas classes para organização do código e como fazer um diagrama UML.
-Tivemos algumas dificuldades em começar o projeto mas após percebermos a lógica do jogo, já foi mais fácil. A classe do `Check4win`foi a mais complicada de fazer pois há várias maneiras de um jogador ganhar.
+Tivemos algumas dificuldades em começar o projeto mas após percebermos a lógica do jogo, já foi mais fácil. A classe do `Check4win` foi a mais complicada de fazer pois há várias maneiras de um jogador ganhar.
 ### Referências
 * <a name="ref3">\[1\]</a> [Tic Tac Toe Game]http://starboundsoftware.com/books/c-sharp/try-it-out/tic-tac-toe
 * Discussão sobre o projeto com alguns colegas de turma.
-
-
-
-
-
-

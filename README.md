@@ -24,6 +24,8 @@ As estruturas de dados que utilizámos no nosso código foi `arrays`, `enumeraç
 
 Um dos algoritmos que usámos foi o de verificação de vitória:
 
+
+
   /// <summary>
         /// Cube check when there are two wins at the same time
         /// </summary>

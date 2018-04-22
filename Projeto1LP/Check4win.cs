@@ -10,27 +10,13 @@ namespace Projeto1LP
     class Check4Win
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:Projeto1LP.Check4Win"/> class.
+        /// Cube check when there are two wins at the same time
         /// </summary>
-        public Check4Win()
-        {
-            ///Initialize Cube counter
-            ShapeCube = 0;
-            ///Initialize Circle counter
-            ShapeCircle = 0;
-
-        }
+        private int shapeCube = 0;
         /// <summary>
-        /// Gets the shape cube.
+        /// Circle check when there are two wins at the same time
         /// </summary>
-        /// <value>The shape cube.</value>
-        public int ShapeCube { get; private set; }
-        /// <summary>
-        /// Gets the shape circle.
-        /// </summary>
-        /// <value>The shape circle.</value>
-        public int ShapeCircle { get; private set; }
-
+        private int shapeCircle = 0;
         /// <summary>
         /// Returns the winner
         /// </summary>
@@ -41,12 +27,12 @@ namespace Projeto1LP
         {
             ///Checks the winner
             if (CheckWinner(board, nplayer)){
-                if (ShapeCube == 1){
-                    ShapeCube = 0;
+                if (shapeCube == 1){
+                    shapeCube = 0;
                     return 1;
                 }
-                else if(ShapeCircle == 1) {
-                    ShapeCircle = 0;
+                else if(shapeCircle == 1) {
+                    shapeCircle = 0;
                     return 2;
                 }
                 return nplayer; 
@@ -175,7 +161,7 @@ namespace Projeto1LP
                             ///Set the cube counter to 0
                             cube = 0;
                             ///if 1 red wins
-                            ShapeCube = 1;
+                            shapeCube = 1;
                             return true;
                     }
                     ///Increases the cube counter in 1 value
@@ -196,7 +182,7 @@ namespace Projeto1LP
                             ///Set the circle counter to 0
                             circle = 0;
                             ///If 1 white wins
-                            ShapeCircle = 1;
+                            shapeCircle = 1;
                             return true;
                     }
                     ///Increases the cicle counter in 1 value
